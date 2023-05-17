@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+      <title>WS Chat</title>
+      <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+
+    <div id="username-page">
+        <div class="username-page-container">
+            <h1 class="title">Informe seu nome</h1>
+            <form id="usernameForm" name="usernameForm">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="seu nome" autocomplete="off" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="accent username-submit" style="float: right;">Entrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="chat-page" class="hidden">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h2>WS Chat</h2>
+            </div>
+            <div class="connecting">
+                Conectandooo...
+            </div>
+            <ul id="messageArea" style="overflow: auto;">
+
+            </ul>
+            <form id="messageForm" name="messageForm" nameForm="messageForm">
+                <div class="form-group">
+                    <div class="input-group clearfix" style="display: flex;justify-content: space-between;gap: 0.25rem;">
+                        <input type="text" id="message" placeholder="Escreva sua mensagem..." autocomplete="off" class="form-control" style="flex: 1"/>
+                        <button 
+                            type="submit" 
+                            style="
+                                float: left;
+                                width: 50px;
+                                height: 50px;
+                                margin-left: 5px;
+                                border-radius: 50%;
+                                display: flex;
+                                align-content: center;
+                                justify-content: center;" 
+                            class="primary">
+                            <img style="height: 22px;" src="./assets/mandar.png" alt="fff">
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
