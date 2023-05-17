@@ -262,6 +262,12 @@ button.accent:hover, button.primary:hover {
     background-color:#e7e7e7;
 }
 
+#draw {
+    height: 100%;
+    width: 76%;
+    background-color: transparent;
+    position: absolute;
+}
 
 @media screen and (max-width: 730px) {
 

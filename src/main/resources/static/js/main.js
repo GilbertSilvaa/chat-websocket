@@ -6,6 +6,7 @@ var messageForm = document.querySelector('#messageForm');
 var messageInput = document.querySelector('#message');
 var messageArea = document.querySelector('#messageArea');
 var connectingElement = document.querySelector('.connecting');
+var drawDiv = document.querySelector('#draw');
 
 var stompClient = null;
 var username = null;
@@ -101,6 +102,38 @@ function onMessageReceived(payload) {
 
     messageArea.appendChild(messageElement);
     messageArea.scrollTop = messageArea.scrollHeight;
+
+    if(message.content.substr(0, 16) == '!desenharCirculo') {
+        let medidasString = message.content.split('!desenharCirculo')[1];
+
+        if(!medidasString) return;
+
+        let medidasArrayString = medidasString.split(',');
+
+        const regexNumeros = /[^0-9]/g;
+
+        const medidasNumbers = medidasArrayString.map(medida => medida.replaceAll(regexNumeros, ''));
+
+        const [xValue, yValue, raioValue] = medidasNumbers;
+
+        console.log(medidasNumbers)
+
+        var circleDrawHTML = `
+            <div 
+                style="
+                    height:${raioValue}px;
+                    width:${raioValue}px;
+                    border-radius:50%;
+                    background:red;
+                    position:relative;
+                    top:${yValue}px;
+                    left:${xValue}px;
+                ">
+            </div>
+        `;
+
+        drawDiv.innerHTML = circleDrawHTML;
+    }
 }
 
 
